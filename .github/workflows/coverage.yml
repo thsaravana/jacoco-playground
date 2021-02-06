@@ -4,7 +4,6 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    types: [opened, ready_for_review, synchronize]
 
 jobs:
   build:
@@ -20,7 +19,7 @@ jobs:
 
     - name: Hello world action step
       id: hello
-      uses: madrapps/jacoco-report
+      uses: madrapps/jacoco-report@main
       with:
         who-to-greet: 'Mona the Octocat'
 
