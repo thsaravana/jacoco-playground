@@ -17,15 +17,6 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Hello world action step
-      id: hello
-      uses: madrapps/jacoco-report@main
-      with:
-        who-to-greet: 'Mona the Octocat'
-
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
-
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
@@ -38,3 +29,12 @@ jobs:
         name: report.xml
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
 
+    - name: Hello world action step
+      id: hello
+      uses: madrapps/jacoco-report@main
+      with:
+        who-to-greet: 'Mona the Octocat'
+        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
