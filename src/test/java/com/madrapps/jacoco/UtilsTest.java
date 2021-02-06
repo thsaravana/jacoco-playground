@@ -1,0 +1,14 @@
+package com.madrapps.jacoco;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class UtilsTest {
+
+    @Test
+    public void testAdd() {
+        final Utils utils = new Utils();
+        int actual = utils.add(2, 3);
+        Assertions.assertEquals(5, actual);
+    }
+}
