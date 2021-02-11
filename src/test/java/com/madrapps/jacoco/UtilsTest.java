@@ -11,4 +11,11 @@ public class UtilsTest {
         int actual = utils.add(2, 3);
         Assertions.assertEquals(5, actual);
     }
+
+    @Test
+    public void testSubtract() {
+        final Utils utils = new Utils();
+        int actual = utils.subtract(8, 3);
+        Assertions.assertEquals(5, actual);
+    }
 }
