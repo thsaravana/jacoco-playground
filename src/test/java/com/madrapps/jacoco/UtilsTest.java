@@ -19,3 +19,4 @@ public class UtilsTest {
         Assertions.assertEquals(5, actual);
     }
 }
+
