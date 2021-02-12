@@ -35,6 +35,7 @@ jobs:
       with:
         who-to-greet: 'Mona the Octocat'
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+        token: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
