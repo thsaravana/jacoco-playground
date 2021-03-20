@@ -13,4 +13,12 @@ class Arithmetic {
     fun multiply(a: Int, b: Int): Int {
         return a * b
     }
+
+    fun divide(a: Int, b: Int): Int {
+        return a / b
+    }
+
+    fun modulo(a: Int, b: Int): Int {
+        return a % b
+    }
 }

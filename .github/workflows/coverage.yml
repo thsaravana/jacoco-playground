@@ -29,14 +29,13 @@ jobs:
         name: report.xml
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
 
-    - name: Hello world action step
-      id: hello
+    - name: Jacoco Report to PR
+      id: jacoco
       uses: madrapps/jacoco-report@main
       with:
-        who-to-greet: 'Mona the Octocat'
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         pass-percentage: 50
 
     - name: Get the total project coverage
-      run: echo "Project coverage ${{ steps.hello.outputs.coverage-overall }}"
+      run: echo "Project coverage ${{ steps.jacoco.outputs.coverage-overall }}"
