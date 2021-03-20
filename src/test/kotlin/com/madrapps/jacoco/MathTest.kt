@@ -25,4 +25,12 @@ class MathTest {
         val actual = math.multiply(8, 2)
         Assertions.assertEquals(16, actual)
     }
+
+    @Test
+    fun testDivide() {
+        val math = Arithmetic()
+        val actual = math.divide(8, 2)
+        Assertions.assertEquals(4, actual)
+    }
+
 }
