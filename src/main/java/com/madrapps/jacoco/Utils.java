@@ -29,4 +29,16 @@ public class Utils {
     public int cube(int a) {
         return a * a * a;
     }
+
+    public int power4(int a) {
+        return a * a * a * a;
+    }
+
+    public int power5(int a) {
+        return a * a * a * a * a;
+    }
+
+    public int power6(int a) {
+        return a * a * a * a * 6;
+    }
 }

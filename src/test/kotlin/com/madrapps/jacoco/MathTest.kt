@@ -11,4 +11,18 @@ class MathTest {
         val actual = math.add(3, 4)
         Assertions.assertEquals(7, actual)
     }
+
+    @Test
+    fun testSubtract() {
+        val math = Arithmetic()
+        val actual = math.subtract(8, 4)
+        Assertions.assertEquals(4, actual)
+    }
+
+    @Test
+    fun testMultiply() {
+        val math = Arithmetic()
+        val actual = math.multiply(8, 2)
+        Assertions.assertEquals(16, actual)
+    }
 }
