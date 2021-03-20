@@ -18,5 +18,12 @@ public class UtilsTest {
         int actual = utils.subtract(8, 3);
         Assertions.assertEquals(5, actual);
     }
+
+    @Test
+    public void testSquare() {
+        final Utils utils = new Utils();
+        int actual = utils.square(3);
+        Assertions.assertEquals(9, actual);
+    }
 }
 
