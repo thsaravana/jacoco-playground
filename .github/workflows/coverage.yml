@@ -35,7 +35,10 @@ jobs:
       with:
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
-        pass-percentage: 50
+        min-coverage-overall: 40
+        min-coverage-changed-files: 60
 
-    - name: Get the total project coverage
-      run: echo "Project coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+    - name: Get the Coverage info
+      run: |
+        echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+        echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
