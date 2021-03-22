@@ -29,7 +29,7 @@ jobs:
 
     - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@v1
+      uses: madrapps/jacoco-report@v1.1
       with:
         path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,7 +43,7 @@ jobs:
 
     - name: Jacoco Report to PR 1
       id: jacoco1
-      uses: madrapps/jacoco-report@v1
+      uses: madrapps/jacoco-report@v1.1
       with:
         path: ${{ github.workspace }}/testPlaystoreProductionDebugUnitTestCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
