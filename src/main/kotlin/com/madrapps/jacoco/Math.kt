@@ -1,20 +1,20 @@
 package com.madrapps.jacoco
 
-class Arithmetic {
+class Arithmetic : MathOperation {
 
-    fun add(a: Int, b: Int): Int {
+    override fun add(a: Int, b: Int): Int {
         return a + b
     }
 
-    fun subtract(a: Int, b: Int): Int {
+    override fun subtract(a: Int, b: Int): Int {
         return a - b
     }
 
-    fun multiply(a: Int, b: Int): Int {
+    override fun multiply(a: Int, b: Int): Int {
         return a * b
     }
 
-    fun divide(a: Int, b: Int): Int {
+    override fun divide(a: Int, b: Int): Int {
         return a / b
     }
 
