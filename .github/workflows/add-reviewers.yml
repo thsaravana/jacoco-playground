@@ -25,4 +25,4 @@ jobs:
         reviewers: saravana-thiyagaraj,instrap,muralikrish91,thsaravana
         re-request-when-approved: true
         re-request-when-changes-requested: true
-        debug-mode: true
+        debug-mode: false
