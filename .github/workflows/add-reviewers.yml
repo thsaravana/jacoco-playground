@@ -23,4 +23,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         reviewers: saravana-thiyagaraj,instrap,muralikrish91,thsaravana
+        re-request-when-approved: true
         debug-mode: true
