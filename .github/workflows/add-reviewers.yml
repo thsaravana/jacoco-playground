@@ -22,5 +22,5 @@ jobs:
       uses: madrapps/add-reviewers@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        reviewers: muralikrish91,thsaravana,saravana-thiyagaraj,instrap
+        reviewers: thsaravana,saravana-thiyagaraj,instrap,muralikrish91
         debug-mode: true
