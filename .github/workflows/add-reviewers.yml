@@ -1,4 +1,4 @@
-name: Measure coverage
+name: Add Requester
 
 on:
   push:
