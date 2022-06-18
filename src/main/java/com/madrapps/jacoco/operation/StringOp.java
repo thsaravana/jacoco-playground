@@ -9,4 +9,8 @@ public class StringOp {
     public boolean startsWith(String source, String chars) {
         return source.startsWith(chars);
     }
+
+    public boolean isEmpty(String source) {
+        return source.isEmpty();
+    }
 }
