@@ -13,4 +13,8 @@ public class StringOp {
     public boolean isEmpty(String source) {
         return source.isEmpty();
     }
+
+    public boolean isBlank(String source) {
+        return source.isBlank();
+    }
 }
