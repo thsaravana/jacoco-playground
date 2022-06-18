@@ -14,7 +14,7 @@ public class StringOp {
         return source.isEmpty();
     }
 
-    public boolean isBlank(String source) {
-        return source.isBlank();
+    public String toUpperCase(String source) {
+        return source.toUpperCase();
     }
 }
