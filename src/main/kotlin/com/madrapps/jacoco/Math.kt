@@ -29,4 +29,8 @@ class Arithmetic {
     fun negative(a: Int): Int {
         return -a
     }
+
+    fun positive(a: Int): Int {
+        return a
+    }
 }
