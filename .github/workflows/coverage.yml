@@ -29,7 +29,7 @@ jobs:
 
     - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@main
+      uses: madrapps/jacoco-report@v1.3
       with:
         paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,3 +43,10 @@ jobs:
       run: |
         echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
         echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+
+    - name: Fail PR if overall coverage is less than 80%
+      if: ${{ steps.jacoco.outputs.coverage-overall }} < 80
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Overall coverage is less than 80%!')
