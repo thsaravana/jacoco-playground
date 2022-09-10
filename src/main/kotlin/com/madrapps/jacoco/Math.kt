@@ -25,4 +25,12 @@ class Arithmetic {
     fun area(a: Int, b: Int): Int {
         return a * b
     }
+
+    fun negative(a: Int): Int {
+        return -a
+    }
+
+    fun positive(a: Int): Int {
+        return a
+    }
 }
