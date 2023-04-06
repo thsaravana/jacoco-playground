@@ -1,9 +1,8 @@
 name: Measure coverage
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
+  pull_request_target:
+    types: [ opened, reopened, ready_for_review ]
 
 jobs:
   build:
