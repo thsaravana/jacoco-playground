@@ -19,25 +19,20 @@ jobs:
       run: chmod +x gradlew
 
     - name: Run Coverage
-      run: ./gradlew testCoverage
+      run: ./gradlew koverXmlReport
 
     - name: Upload Report
       uses: 'actions/upload-artifact@v2'
       with:
         name: report.xml
-        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+        path: ${{ github.workspace }}/build/reports/kover/report.xml
 
-    - name: Jacoco Report to PR
-      id: jacoco
-      uses: madrapps/jacoco-report@v1.1
+    - name: Publish code coverage report
+      id: kover
+      uses: mi-kas/kover-report@v1.5
       with:
-        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+        path: ${{ github.workspace }}/build/reports/kover/report.xml
         token: ${{ secrets.GITHUB_TOKEN }}
-        min-coverage-overall: 40
-        min-coverage-changed-files: 60
-        debug-mode: false
-
-    - name: Get the Coverage info
-      run: |
-        echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
-        echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+        title: Code Coverage
+        update-comment: true
+        coverage-counter-type: LINE
