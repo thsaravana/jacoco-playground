@@ -2,7 +2,6 @@ name: Measure coverage
 
 on:
   push:
-    branches: [ main ]
   pull_request:
 
 jobs:
@@ -29,13 +28,13 @@ jobs:
 
     - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@v1.1
+      uses: madrapps/jacoco-report@v1.3_baseSHA
       with:
-        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+        paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 40
         min-coverage-changed-files: 60
-        debug-mode: false
+        debug-mode: true
 
     - name: Get the Coverage info
       run: |
