@@ -38,7 +38,7 @@ public class Utils {
         return a * a * a * a * a;
     }
 
-    public int power6(int a) {
-        return a * a * a * a * 6;
-    }
+//    public int power6(int a) {
+//        return a * a * a * a * 6;
+//    }
 }
