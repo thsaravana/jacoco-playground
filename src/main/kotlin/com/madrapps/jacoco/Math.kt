@@ -11,6 +11,7 @@ class Arithmetic {
     }
 
     fun multiply(a: Int, b: Int): Int {
+        // Some comment here
         return a * b
     }
 
@@ -19,10 +20,15 @@ class Arithmetic {
     }
 
     fun modulo(a: Int, b: Int): Int {
+        // Some comment for non-covered method
         return a % b
     }
 
     fun area(a: Int, b: Int): Int {
         return a * b
+    }
+
+    fun volume(a: Int, b: Int, c: Int): Int {
+        return a * b * c
     }
 }
