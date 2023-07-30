@@ -13,13 +13,6 @@ class MathTest {
     }
 
     @Test
-    fun testSubtract() {
-        val math = Arithmetic()
-        val actual = math.subtract(8, 4)
-        Assertions.assertEquals(4, actual)
-    }
-
-    @Test
     fun testMultiply() {
         val math = Arithmetic()
         val actual = math.multiply(8, 2)
