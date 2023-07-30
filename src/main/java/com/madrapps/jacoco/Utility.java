@@ -1,6 +1,6 @@
 package com.madrapps.jacoco;
 
-public class Utils {
+public class Utility {
 
     public int multiply(int a, int b) {
         return a * b;
