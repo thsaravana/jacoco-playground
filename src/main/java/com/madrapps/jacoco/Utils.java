@@ -41,4 +41,7 @@ public class Utils {
     public int power6(int a) {
         return a * a * a * a * 6;
     }
+    public String toUpperCase(String str) {
+        return str != null ? str.toUpperCase() : "" ;
+    }
 }
