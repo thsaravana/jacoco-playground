@@ -36,7 +36,7 @@ jobs:
         min-coverage-overall: 40
         min-coverage-changed-files: 60
         update-comment: true
-        title: '`Coverage Report`'
+        title: '`Coverage Report main`'
         debug-mode: true
 
     - name: Get the Coverage info
