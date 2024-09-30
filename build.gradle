@@ -30,35 +30,17 @@ tasks.withType(Test) {
     jacoco.excludes = ['jdk.internal.*']
 }
 
-tasks.create(name: "testCoverage", type: JacocoReport, dependsOn: "test") {
+// Code coverage report is always generated after tests run
+test { finalizedBy jacocoTestReport }
+jacocoTestReport {
+    // Tests are required to run before generating the code coverage report
+    dependsOn test
 
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports for the test build."
-
-    reports {
-        html.required.set(true)
-        xml.required.set(true)
+    // Remove closure classes from the report, as they are already covered by the enclosing class coverage stats adding only noise.
+    // See: https://stackoverflow.com/questions/39453696
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect { dir ->
+            fileTree(dir: dir, excludes: ['**/*$*_closure*'])
+        }))
     }
-
-    def excludes = [
-            '**/*Test*.*',
-            '**/actions/*.*',
-            '**/core/*.*',
-            '**/markers/*.*',
-            '**/services/**/*.*',
-            '**/toolwindow/*.*',
-            '**/utils/*.*'
-    ]
-
-    def javaClasses = fileTree(dir: "${buildDir}/classes/java/main", excludes: excludes)
-    def kotlinClasses = fileTree(dir: "${buildDir}/classes/kotlin/main", excludes: excludes)
-    classDirectories.from = files([javaClasses, kotlinClasses])
-
-    sourceDirectories.from = files([
-            "$project.projectDir/src/main/java",
-            "$project.projectDir/src/main/kotlin",
-            "$buildDir/generated/source/kapt/test"
-    ])
-
-    executionData.from = files("${project.buildDir}/jacoco/test.exec")
 }
