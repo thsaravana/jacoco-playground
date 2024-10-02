@@ -9,33 +9,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v4
       with:
-        java-version: 1.8
+        java-version: 19
+        distribution: 'adopt'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Run Coverage
-      run: ./gradlew testCoverage
+    - name: Tests
+      run: |
+        ./gradlew check
 
-    - name: Upload Report
-      uses: 'actions/upload-artifact@v2'
-      with:
-        name: report.xml
-        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
-
-    - name: Jacoco Report to PR
+    - name: Add coverage to PR
       id: jacoco
-      uses: madrapps/jacoco-report@v1.1
+      uses: madrapps/jacoco-report@v1.7.1
       with:
-        path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+        paths: |
+          **/build/reports/jacoco/test/jacocoTestReport.xml
         token: ${{ secrets.GITHUB_TOKEN }}
-        min-coverage-overall: 40
+        min-coverage-overall: 60
         min-coverage-changed-files: 60
-        debug-mode: false
+        title: Code Coverage Report
+        pass-emoji: ':green_circle:'
+        fail-emoji: ':red_circle:'
 
     - name: Get the Coverage info
       run: |
