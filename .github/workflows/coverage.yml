@@ -29,11 +29,11 @@ jobs:
 
     - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@workflow_summary
+      uses: madrapps/jacoco-report@v1.7.1
       with:
         paths: ${{ github.workspace }}/build/reports/jacoco/**/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
-        min-coverage-overall: 40
+        min-coverage-overall: 41
         min-coverage-changed-files: 60
         update-comment: true
         title: '`Coverage Report main`'
