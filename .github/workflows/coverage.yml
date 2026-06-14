@@ -29,14 +29,14 @@ jobs:
 
     - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@update-more-dependencies
+      uses: madrapps/jacoco-report@fix-283
       with:
         paths: ${{ github.workspace }}/build/reports/jacoco/**/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 41
         min-coverage-changed-files: 60
         update-comment: true
-        title: '`Coverage Report ESM`'
+        title: '`Coverage Report fix-283`'
         comment-type: both
         debug-mode: true
 
